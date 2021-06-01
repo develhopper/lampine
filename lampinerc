@@ -1,0 +1,11 @@
+document_root=~/work/www
+
+data_dir=~/.local/mysql_data
+
+mysql_password=password
+
+composer_home=~/.composer
+
+apache_port=80
+
+mysql_port=3306

@@ -1,0 +1,4 @@
+test/*
+!test/index.php
+data/*
+!data/.gitkeep
