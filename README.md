@@ -1,13 +1,15 @@
 
 # lampine
 
-Alpine LAMP stack
+Alpine LAMP stack with php8 mysql and phpmyadmin
 
 Docker image
 
 ## Installation
 
 clone this repository
+
+https://github.com/develhopper/lampine
 
 run
 
