@@ -26,7 +26,10 @@ RUN apk add mariadb mariadb-client \
     php8-gd \
     php8-opcache \
     php8-tokenizer \
-    php8-simplexml
+    php8-simplexml \
+    php8-mbstring \
+    php8-xmlwriter \
+    php8-fileinfo
 
 RUN ln -sf /usr/bin/php8 /usr/bin/php && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
