@@ -52,7 +52,7 @@ RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/php8/php.ini && \
     sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/php8/php.ini && \
     sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/php8/php.ini && \
     sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/php8/php.ini && \
-    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php8/php.ini
+    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php8/php.ini && mkdir /root/.etc
 
 
 COPY entry.sh /entry.sh

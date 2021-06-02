@@ -1,6 +1,10 @@
 document_root=~/work/www
 
-data_dir=~/.local/mysql_data
+data_dir=~/.local/share/lampine/mysql_data
+
+etc_dir=~/.local/share/lampine/etc
+
+php_config=~/.local/share/lampine/etc/php8
 
 mysql_password=password
 

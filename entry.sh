@@ -2,6 +2,8 @@
 
 ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 
+cp -r /root/.etc/apache2 /root/.etc/php8 /etc
+
 # start apache
 echo "Starting httpd"
 httpd
