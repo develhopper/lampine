@@ -34,10 +34,10 @@ RUN apk add mariadb mariadb-client \
 RUN ln -sf /usr/bin/php8 /usr/bin/php && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 RUN mkdir -p /usr/share/webapps/ && cd /usr/share/webapps/ && \
-    wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz > /dev/null 2>&1 && \
-    tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz > /dev/null 2>&1 && \
-    rm phpMyAdmin-5.0.2-all-languages.tar.gz && \
-    mv phpMyAdmin-5.0.2-all-languages phpmyadmin && \
+    wget https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-english.tar.gz > /dev/null 2>&1 && \
+    tar zxvf phpMyAdmin-5.1.1-english.tar.gz > /dev/null 2>&1 && \
+    rm phpMyAdmin-5.1.1-english.tar.gz && \
+    mv phpMyAdmin-5.1.1-english phpmyadmin && \
     chmod -R 777 /usr/share/webapps/
 
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld /var/lib/mysql && \
@@ -55,8 +55,10 @@ RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/php8/php.ini && \
     sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/php8/php.ini && \
     sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/php8/php.ini && \
     sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/php8/php.ini && \
-    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php8/php.ini && mkdir /root/.etc
+    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php8/php.ini
 
+RUN sed -i '/PS1/c\PS1="\\[\\e[0;32m\\]lampine(\\u) \\e[m: \\[\\e[36m\\][ \\[\\e[m\\]\\w \\[\\e[36m\\]]\\n\\[\\e[0;31m\\]\\$\\->\\[\\e[m\\] "' /etc/profile && \
+	sed -i "/umask/c\umask 002" /etc/profile && mkdir /root/.etc
 
 COPY entry.sh /entry.sh
 

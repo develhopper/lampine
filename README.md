@@ -14,20 +14,17 @@ https://github.com/develhopper/lampine
 run
 
 ```bash
-
 install.sh
-
 ```
 
 after that you can start lamp server by running
 
 ```bash
-
 lampine start
-
 ```
 
 ### Change default directories and ports
+
 edit ~/.lampinerc
 
 or run 
@@ -39,19 +36,21 @@ lampine config
 ## Edit php and apache configurations
 
 edit files in $etc_dir
+
 default path of etc_dir is
 
 ~/.local/share/lampine/etc
 
-#### reload apache
+#### Reload apache
+after editing apache and php configuration files you need reload apache
 to reload apache run this command
 
 ```bash
 lampine reload
 ```
-#### phpmyadmin
+#### PhpMyAdmin
 
-open localhost/phpmyadmin url in your browser
+open  ```http://localhost/phpmyadmin``` url in your browser
 
 ## Manual
 
@@ -80,6 +79,8 @@ config: to change default directories path and default ports
 
 status: show server (container) status
 
-sh: open an interactive shell attached to container
+sh: open an interactive shell (as local user id) attached to container
+
+shroot: open an intractive shell as root user attached to container
 
 reload: reload apache server

@@ -2,7 +2,7 @@
 
 guide(){
 		echo -e "Help: \n"
-		echo -e "lampine (start|stop|config|status|reload|sh) [local_port:port] \n"
+		echo -e "lampine (start|stop|config|status|reload|sh|shroot) [local_port:port] \n"
 		echo -e "ex: lampine start 8000:8000"
 		echo "ex: lampine start"
 }
@@ -13,7 +13,7 @@ if [ $# -eq 0 ];then
 fi
 
 if [ ! -f ~/.lampinerc ];then
-		echo "~/.lampinerc not found pleaser reinstall"
+		echo "~/.lampinerc not found please reinstall"
 		exit
 fi
 
@@ -59,7 +59,7 @@ if [ "$1" == "start" ];then
 	--name lampine-server develhopper/lampine:latest 2>/dev/null
 
 	if [ $? -eq 125 ];then
-			echo "lampine-server is already running"
+			echo -e "somthin went wrong. please make sure docker service is running\n or maybe container already running"
 	fi
 
 elif [ "$1" == "stop" ];then
@@ -74,13 +74,14 @@ elif [ "$1" == "status" ];then
 			echo "server is not running"
 	fi
 elif [ "$1" == "sh" ];then
-	docker exec -it lampine-server sh
-
+	docker exec -it --user $UID:$UID lampine-server ash -l
+elif [ "$1" == "shroot" ];then
+	docker exec -it lampine-server ash -l
 elif [ "$1" == "reload" ];then
 	docker exec lampine-server cp -r /root/.etc/apache2 /root/.etc/php8 /etc/
 	docker exec lampine-server pkill httpd
 	docker exec lampine-server httpd
-	echo -e "Apache Reloaded \n"
+	echo -e "\nApache Reloaded \n"
 else
 		guide
 fi
