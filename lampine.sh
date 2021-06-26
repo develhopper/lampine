@@ -54,12 +54,12 @@ if [ "$1" == "start" ];then
 	echo "Apache local port: $apache_port"
 	echo -e "Mysql local port: $mysql_port \n"
 	docker run -d --rm -v $document_root:/var/www/localhost/htdocs/ \
-	-v $etc_dir:/root/.etc -v $data_dir:/var/lib/mysql -v $composer_home:/root/.composer \
+	-v $etc_dir:/root/.etc -v $data_dir:/var/lib/mysql -v $composer_home:/tmp/composer \
 	-e MYSQL_ROOT_PASSWORD=$mysql_password -p $apache_port:80 -p $mysql_port:3306 $append \
 	--name lampine-server develhopper/lampine:latest 2>/dev/null
 
 	if [ $? -eq 125 ];then
-			echo -e "somthin went wrong. please make sure docker service is running\n or maybe container already running"
+			echo -e "somthing is wrong. please make sure docker service is running\nor maybe container is already running"
 	fi
 
 elif [ "$1" == "stop" ];then

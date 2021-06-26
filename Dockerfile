@@ -31,6 +31,8 @@ RUN apk add mariadb mariadb-client \
     php8-xmlwriter \
     php8-fileinfo
 
+ENV COMPOSER_HOME /tmp/composer
+
 RUN ln -sf /usr/bin/php8 /usr/bin/php && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 RUN mkdir -p /usr/share/webapps/ && cd /usr/share/webapps/ && \
