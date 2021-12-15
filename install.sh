@@ -3,8 +3,10 @@ echo "Installing Lampine"
 mkdir -p ~/.local/bin
 
 cp lampine.sh ~/.local/bin/lampine
+cp php7/lampine.sh ~/.local/bin/lampine7
 
 cp lampinerc ~/.lampinerc
+cp php7/lampinerc ~/.lampinerc7
 
 . ~/.lampinerc
 
