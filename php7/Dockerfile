@@ -2,13 +2,12 @@ From alpine:latest
 
 RUN apk update && apk upgrade
 
-RUN apk add mysql \
-    apache2 \ 
+RUN apk add mysql
+Run apk --repository=https://dl-cdn.alpinelinux.org/alpine/v3.15/main add apache2 \ 
     apache2-utils \
     curl wget \
     tzdata \
     php7-apache2 \
-    php7-cli \
     php7-phar \
     php7-zlib \
     php7-zip \

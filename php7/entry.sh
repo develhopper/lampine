@@ -55,6 +55,6 @@ rm -f $tfile
 echo "Done query"
 
 # start mysql
-# nohup mysqld_safe --skip-grant-tables --bind-address 0.0.0.0 --user mysql > /dev/null 2>&1 &
+#nohup mysqld_safe --skip-grant-tables --bind-address 0.0.0.0 --user mysql > /dev/null 2>&1 &
 echo "Starting mariadb database"
-exec /usr/bin/mysqld --user=root --bind-address=0.0.0.0
+exec /usr/bin/mysqld --skip-innodb --user=root --bind-address=0.0.0.0

@@ -1,3 +1,5 @@
+container_name=lampine7-server
+
 document_root=~/work/www
 
 data_dir=~/.local/share/lampine/mysql_data
@@ -11,5 +13,6 @@ mysql_password=password
 composer_home=~/.composer
 
 apache_port=80
+apache_logs=/tmp/apache2
 
 mysql_port=3306
