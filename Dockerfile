@@ -1,4 +1,4 @@
-From alpine:latest
+From public.ecr.aws/docker/library/alpine:latest
 
 RUN printf "https://dl-cdn.alpinelinux.org/alpine/edge/main\nhttps://dl-cdn.alpinelinux.org/alpine/edge/community\n" > /etc/apk/repositories
 
